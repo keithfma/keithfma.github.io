@@ -2,17 +2,31 @@
 layout: page
 title: About
 permalink: /about/
+url-bfc: http://bostonfusion.com/
+url-yale-geo: https://earth.yale.edu/
+url-bu-rcs: http://www.bu.edu/tech/support/research/rcs/
 ---
 
-This is the base Jekyll theme. You can find out more info about customizing your Jekyll theme, as well as basic Jekyll usage documentation at [jekyllrb.com](https://jekyllrb.com/)
+# About me
 
-You can find the source code for Minima at GitHub:
-[jekyll][jekyll-organization] /
-[minima](https://github.com/jekyll/minima)
+I am a research scientist and software developer. I currently work in applied
+machine learning at [Boston Fusion Corp]({{ url-bfc }}), and am working towards
+completing my PhD at in [Geology & Geophysics at Yale University]({{ url-yale-geo }}).
+In the past, I worked as an HPC programming consultant with
+[Boston University Research Computing Services]({{ url-bu-rcs }}).  I am always
+happy to talk - so please feel free to reach out.
 
-You can find the source code for Jekyll at GitHub:
-[jekyll][jekyll-organization] /
-[jekyll](https://github.com/jekyll/jekyll)
+# About this blog
 
+This blog is intended as a place to share things that I think are worth sharing
+in an informal setting. The site is just starting out, but I expect it to
+include my own work and discussions of other's work that I found interesting
+and useful. Suggestions are most welcome.
 
-[jekyll-organization]: https://github.com/jekyll
+# About the name 
+
+NaN means "not a number", which is often what you get when something goes
+horribly wrong in your code. As any scientific programmer will know, it is all
+to common to excitedly print the output of some long-running simulation only to
+find ... **it's all damn NaNs!** Hopefully this blog can be help someone,
+somewhere, sometime do more science and get less NaNs. 
