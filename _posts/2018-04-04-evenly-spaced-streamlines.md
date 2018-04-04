@@ -56,7 +56,7 @@ it should when making plots for publication. Edward Tufte, a guru of scientific
 visualization, said that the goal of our figures should be to achieve an
 "economy of understanding" for the reader. He is right, and so it is up to us
 to put in the work to make our figures as expressive as possible. For
-streamlines, this means picking start-points such that the the streamlines span
+streamlines, this means picking start-points such that the streamlines span
 the data with a consistent density -- which is harder than it sounds. 
 
 Bruno Jobard and Wilfred Lefer's 1997 paper
@@ -79,15 +79,15 @@ end points for each line, we get the following plot:
 ![Basic plot using Jobar & Lefer algorithm](/assets/even_stream_line.png)
 
 One particularly nice feature of the algorithm is that we can explicitly (and
-independently) set the maximum and minimum steamline spacing. This provides a
+independently) set the maximum and minimum streamline spacing. This provides a
 lot of space for customization with minimal parameters to fiddle with.
 
 A bit about the algorithm itself. The basic idea is simply to draw streamlines
-until they are too close to thier neighbors, then stop. Practically, this means
+until they are too close to their neighbors, then stop. Practically, this means
 selecting a start point, integrating forward from that point, and checking
 distance to all existing streamline points at each step. New start points are
 selected by generating candidates at some distance from the existing
-streamlines, and accepting those that are sufficiently far from thier
+streamlines, and accepting those that are sufficiently far from their
 neighbors. This process of generating a start point and adding a new
 streamline, continues until no more lines can be added at the specified minimum
 spacing.
@@ -109,7 +109,7 @@ the fancy plot variants below.
 # Streamline plot with arrow glyphs
 
 Since simple streamlines do not indicate direction, it is useful to add arrows
-along thier length. This can be done easily by placing glyphs at some specified
+along their length. This can be done easily by placing glyphs at some specified
 distance interval along each line.
 
 ![Arrow plot using Jobar & Lefer algorithm](/assets/even_stream_arrow.png)
@@ -125,7 +125,7 @@ line based on distance to the nearest neighbor, up to some maximum width.
 # Textured streamline plot
 
 The last option is to generate a textured plot by shading each streamline in a
-sawtooth-like pattern. When these shaded lines are plotted densly, the provide
+sawtooth-like pattern. When these shaded lines are plotted densely, the provide
 a quite detailed view of the vector field while still indicating flow
 direction. The effect is similar to the line-integral-convolution (LIC) method,
 but (I think) simpler to understand and implement.
@@ -138,7 +138,7 @@ A few months after I wrote the [Evenly Spaced Streamlines]({{ url-ess-github}})
 package, I was showing it off to my good friend Chris Thissen and learned that
 he too had recently implemented the same algorithm in MATLAB!  It turns out
 that we both got the reference from our PhD advisor, Mark Brandon, decided it
-was useful enought to share with the world, and quietly set to work coding it
+was useful enough to share with the world, and quietly set to work coding it
 up. Great minds may think alike, but probably should spend more time talking!
 You can find Chris's (also excellent) implementation at the link below:
 
