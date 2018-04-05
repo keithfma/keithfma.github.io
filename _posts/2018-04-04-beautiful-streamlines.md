@@ -22,23 +22,22 @@ As part of my PhD research, I measured velocity fields from a laboratory-scale
 model of a mountain belt in mid-collision. This post discusses some work I did
 to visualize the results, which I hope others my find useful -- vector fields
 being ridiculously common in many disciplines. To cut to the chase, you can
-find a [MATLAB implementation of the Jobard & Lefer streamline plotting algorithm]({{ page.url-paper }})
+find a MATLAB implementation of the Jobard & Lefer streamline plotting algorithm]({{ page.url-ess-github }})
 at the links below, which you can use to generate plots like you see in the
 figure below.
 
-+ [Documentation]({{ page.url-ess-docs }})
 + [Github Repository]({{ page.url-ess-github }})
 + [Mathworks FileExchange]({{ page.url-ess-fex }})
++ [Documentation]({{ page.url-ess-docs }})
 
 ![Examples plots from evenly_spaced_streamlines](/assets/even_stream_combined.png)
 
-Incidently, a few months after I wrote the [evenly_spaced_streamlines]({{ page.url-ess-github}}) 
-package, I learned that my good friend [Chris Thissen]({{ page.url-chris }})
-had been doing the same thing at the same time.  It turns out that we both got
-the reference from our PhD advisor, decided it was useful enough to share with
-the world, and quietly set to work coding it up. You can find Chris's (also
-excellent) implementation at the following link:
-[estream2]({{ page.url-estream2 }}).
+Incidently, a few months after I wrote this package, I learned that my good
+friend [Chris Thissen]({{ page.url-chris }}) had been doing the same thing at
+the same time.  It turns out that we both got the reference from our PhD
+advisor, decided it was useful enough to share with the world, and quietly set
+to work coding it up. You can find Chris's (also excellent) implementation at
+the following link: [estream2]({{ page.url-estream2 }}).
 
 # About streamlines
 
@@ -70,8 +69,8 @@ to put in the work to make our figures as expressive as possible. For
 streamlines, this means picking start-points such that the streamlines span
 the data with a consistent density -- which is harder than it sounds. 
 
-Bruno Jobard and Wilfred Lefer's 1997 paper
-[Creating Evenly-Spaced Streamlines of Arbitrary Density]({{ page.url-paper }})
+Bruno Jobard and Wilfred Lefer's 1997 paper, 
+[Creating Evenly-Spaced Streamlines of Arbitrary Density]({{ page.url-paper }}), 
 provides a neat algorithm to solve the spacing problem, and a few additional
 formatting tricks that make beautiful and informative streamline plots. A few
 years back, I implemented their algorithms in MATLAB, and posted the package to
@@ -105,12 +104,15 @@ spacing.
 
 Two parameters control the spacing, *dsep*, the minimum distance from all
 streamlines to the start point of a new line, and *dtest* the minimum distance
-between any streamline. 
+between any streamline. The authors recommend _dtest = 0.5*dsep_, which means
+the streamline density varies over the plot -- higher in regions where the
+vectors converge and lower where they diverge. 
 
-This sounds computationally expensive! To make it feasible, the authors use a
-low-res grid and keep track of which "cells" contain streamlines already.
-Checking for neighboring streamlines then only requires checking the
-neighboring grid cells, instead of computing distances to all points.    
+All this distance-checking sounds computationally expensive! To make it
+feasible, the authors use a low-res grid and keep track of which "cells"
+contain streamlines already.  Checking for neighboring streamlines then only
+requires checking the neighboring grid cells, instead of computing distances to
+all points.    
 
 It is worth noting that MATLAB's [streamslice]({{ page.url-matlab-streamslice }})
 now includes similar functionality through a single *density* parameter. It
