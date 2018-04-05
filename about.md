@@ -9,10 +9,12 @@ url-bu-rcs: http://www.bu.edu/tech/support/research/rcs/
 
 # About me
 
+<img align="right" width="160" height="160" src="/assets/me.png" />
+
 I am Keith Ma, your friendly neighborhood research scientist and software
-developer. I currently work in applied machine learning at [Boston Fusion Corp]({{ url-bfc }}),
-and am working towards completing my PhD at in [Geology & Geophysics at Yale University]({{ url-yale-geo }}).
-In the past, I worked as an HPC programming consultant with [Boston University Research Computing Services]({{ url-bu-rcs }}).
+developer. I currently work in applied machine learning at [Boston Fusion Corp]({{ page.url-bfc }}),
+and am working towards completing my PhD at in [Geology & Geophysics at Yale University]({{ page.url-yale-geo }}).
+In the past, I worked as an HPC programming consultant with [Boston University Research Computing Services]({{ page.url-bu-rcs }}).
 I am always happy to talk - so please feel free to reach out.
 
 # About this blog
