@@ -22,7 +22,7 @@ As part of my PhD research, I measured velocity fields from a laboratory-scale
 model of a mountain belt in mid-collision. This post discusses some work I did
 to visualize the results, which I hope others my find useful -- vector fields
 being ridiculously common in many disciplines. To cut to the chase, you can
-find a MATLAB implementation of the Jobard & Lefer streamline plotting algorithm]({{ page.url-ess-github }})
+find a [MATLAB implementation of the Jobard & Lefer streamline plotting algorithm]({{ page.url-ess-github }})
 at the links below, which you can use to generate plots like you see in the
 figure below.
 
@@ -106,7 +106,7 @@ Two parameters control the spacing, *dsep*, the minimum distance from all
 streamlines to the start point of a new line, and *dtest* the minimum distance
 between any streamline. The authors recommend _dtest = 0.5*dsep_, which means
 the streamline density varies over the plot -- higher in regions where the
-vectors converge and lower where they diverge. 
+streamlines converge and lower where they diverge. 
 
 All this distance-checking sounds computationally expensive! To make it
 feasible, the authors use a low-res grid and keep track of which "cells"
