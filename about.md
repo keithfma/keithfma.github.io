@@ -9,12 +9,11 @@ url-bu-rcs: http://www.bu.edu/tech/support/research/rcs/
 
 # About me
 
-I am a research scientist and software developer. I currently work in applied
-machine learning at [Boston Fusion Corp]({{ url-bfc }}), and am working towards
-completing my PhD at in [Geology & Geophysics at Yale University]({{ url-yale-geo }}).
-In the past, I worked as an HPC programming consultant with
-[Boston University Research Computing Services]({{ url-bu-rcs }}).  I am always
-happy to talk - so please feel free to reach out.
+I am Keith Ma, your friendly neighborhood research scientist and software
+developer. I currently work in applied machine learning at [Boston Fusion Corp]({{ url-bfc }}),
+and am working towards completing my PhD at in [Geology & Geophysics at Yale University]({{ url-yale-geo }}).
+In the past, I worked as an HPC programming consultant with [Boston University Research Computing Services]({{ url-bu-rcs }}).
+I am always happy to talk - so please feel free to reach out.
 
 # About this blog
 
@@ -28,5 +27,5 @@ and useful. Suggestions are most welcome.
 NaN means "not a number", which is often what you get when something goes
 horribly wrong in your code. As any scientific programmer will know, it is all
 to common to excitedly print the output of some long-running simulation only to
-find ... **it's all damn NaNs!** Hopefully this blog can be help someone,
+find ... **it's all damn NaNs!** Hopefully this blog can help someone,
 somewhere, sometime do more science and get less NaNs. 
