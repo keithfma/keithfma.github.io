@@ -10,7 +10,7 @@ linkedin_username:  keithfma
 # Build settings
 markdown: kramdown
 theme: minima
-plugins:
+plugins_dir:
   - jekyll-feed
 
 # Exclude from processing.
