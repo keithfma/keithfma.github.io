@@ -31,3 +31,7 @@ horribly wrong in your code. As any scientific programmer will know, it is all
 to common to excitedly print the output of some long-running simulation only to
 find ... **it's all damn NaNs!** Hopefully this blog can help someone,
 somewhere, sometime do more science and get less NaNs. 
+
+In meme form:
+
+![]({{ site.url }}/assets/meme.png)
