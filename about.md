@@ -12,9 +12,15 @@ url-bu-rcs: http://www.bu.edu/tech/support/research/rcs/
 <img align="right" width="160" height="160" src="/assets/me.png" />
 
 I am Keith Ma, your friendly neighborhood research scientist and software
-developer. I currently work in applied machine learning at [Boston Fusion Corp]({{ page.url-bfc }}),
-and am working towards completing my PhD at in [Geology & Geophysics at Yale University]({{ page.url-yale-geo }}).
-In the past, I worked as an HPC programming consultant with [Boston University Research Computing Services]({{ page.url-bu-rcs }}).
+developer. I am currently a Data Science Fellow with [Insight Data Science](https://www.insightdatascience.com/).
+My project at Insight was a navigation app that optimizes routing to keep you
+in the sun or shade. You can check out the app at http://parasol.allnans.com
+and see a brief presentation about it at http://allnans.com/parasol-slides. I
+am also working towards completing my PhD at in [Geology & Geophysics at Yale University]({{ page.url-yale-geo }}).
+
+In the past, I worked in applied machine learning at [Boston Fusion Corp]({{page.url-bfc }}),
+and as an HPC programming consultant with [Boston University Research Computing Services]({{ page.url-bu-rcs }}).
+
 I am always happy to talk - so please feel free to reach out.
 
 # About this blog
