@@ -14,9 +14,9 @@ url-bu-rcs: http://www.bu.edu/tech/support/research/rcs/
 I am Keith Ma, your friendly neighborhood research scientist and software
 developer. I am currently a Data Science Fellow with [Insight Data Science](https://www.insightdatascience.com/).
 My project at Insight was a navigation app that optimizes routing to keep you
-in the sun or shade. You can check out the app at http://parasol.allnans.com
-and see a brief presentation about it at http://allnans.com/parasol-slides. I
-am also working towards completing my PhD at in [Geology & Geophysics at Yale University]({{ page.url-yale-geo }}).
+in the sun or shade. Please check out the [app](http://parasol.allnans.com)
+or a brief [presentation](http://allnans.com/parasol-slides). I am also working
+towards completing my PhD at in [Geology & Geophysics at Yale University]({{page.url-yale-geo }}).
 
 In the past, I worked in applied machine learning at [Boston Fusion Corp]({{page.url-bfc }}),
 and as an HPC programming consultant with [Boston University Research Computing Services]({{ page.url-bu-rcs }}).
@@ -40,4 +40,4 @@ somewhere, sometime do more science and get less NaNs.
 
 In meme form:
 
-![]({{ site.url }}/assets/meme.png)
+![](/assets/meme.png)
