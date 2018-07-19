@@ -40,4 +40,4 @@ somewhere, sometime do more science and get less NaNs.
 
 In meme form:
 
-![](/assets/meme.png)
+![](/assets/meme.jpg)
