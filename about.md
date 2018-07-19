@@ -39,5 +39,10 @@ find ... **it's all damn NaNs!** Hopefully this blog can help someone,
 somewhere, sometime do more science and get less NaNs. 
 
 In meme form:
+<figure>
+<img src="/assets/meme.jpg" alt="'Scroll of Truth' meme" />
+<figcaption>
+<a href="https://robotatertot.tumblr.com/post/156736308530/truth">Original comic by Tate Parker</a>, not sure who made this wonderful variant.
+</figcaption>
+</figure>
 
-![](/assets/meme.jpg)
