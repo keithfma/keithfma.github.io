@@ -229,7 +229,24 @@ shady routes and still cares about distance.
 
 ## Routing with a Sun/Shade Cost
 
+The heavy lifting for computing the route is handled by the wonderful
+PostgreSQL extension, pgRouting. This extension computes least-cost routes
+using a variety of algorithms (I used Djiksta) and allows the user to specify
+the cost as a function of the columns in an OpenStreetMap database. All I had
+to do was to write the computed sun and shade cost for each segment of the
+transport network to my database, and choose the right ones to use based on the
+time of day. 
+
 ## Web App
 
+I won't go into the details, but I set up the web app using Python and Flask to
+host an API with endpoints for generating routes, etc., used Leaflet with a few
+wonderful extensions to build an interactive map, and hosted the sun/shade
+simulation images using Geoserver.  
+
 ## Next Steps
+
+My biggest hope for *Parasol* is that the idea catches some traction and gets
+picked up and integrated into one (or more!) of the many wonderful navigation
+apps out there in the wild. Good luck! 
 
