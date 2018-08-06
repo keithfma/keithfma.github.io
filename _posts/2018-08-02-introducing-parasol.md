@@ -204,6 +204,14 @@ $$
 \text{shade_cost} = \int_s 1 - I ds
 $$
 
+<figure>
+<img src="{{page.assets}}/demo-cost.png">
+<figcaption>
+Example of the sun and shade cost components for the route shown in the demo
+video above (i.e., from the Boston Esplanade to South Station).
+</figcaption>
+</figure>
+
 Here is the fun part: if the user sets $$\beta = 1$$, then we recover the
 shortest-length path! Working this through shows that the cost in this case is
 just the path integral of a constant, which is proportional to the length.
