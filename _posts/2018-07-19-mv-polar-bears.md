@@ -6,8 +6,6 @@ categories: jekyll update
 published: true 
 ---
 
-# Martha's Vineyard Polar Bears Data Visualization
-
 For the past several years, the wonderful MV Polar Bears group has recorded how
 many people attend each day. This post provides some basic visualizations of
 the dataset and an attempt to build a predicitive model to forecast the
