@@ -11,19 +11,18 @@ url-bu-rcs: http://www.bu.edu/tech/support/research/rcs/
 
 # About me
 
-<img align="right" width="160" height="160" src="{{page.assets}}/me.png" />
+<img align="right" width="160" height="160" src="{{page.assets}}/me.jpg" />
 
 I am Keith Ma, your friendly neighborhood research scientist and software
-developer. I am currently a Data Science Fellow with [Insight Data Science](https://www.insightdatascience.com/).
-My project at Insight was a navigation app that optimizes routing to keep you
-in the sun or shade. Please check out the [app](http://parasol.allnans.com)
-or a brief [presentation](http://allnans.com/parasol-slides). I am also working
-towards completing my PhD at in [Geology & Geophysics at Yale University]({{page.url-yale-geo }}).
+developer. I am currently a Data Engineer at [TellusLabs](https://telluslabs.com/),
+where I build large-scale data analytics tools for agricultural monitoring and
+prediction. I am also working towards completing my PhD at in [Geology & Geophysics at Yale University]({{page.url-yale-geo }}).
 
-In the past, I worked in applied machine learning at [Boston Fusion Corp]({{page.url-bfc }}),
-and as an HPC programming consultant with [Boston University Research Computing Services]({{ page.url-bu-rcs }}).
+In the past, was a Data Science Fellow with [Insight Data Science](https://www.insightdatascience.com/),
+a Research Scientist in applied machine learning at [Boston Fusion Corp]({{page.url-bfc }}),
+and was an HPC programming consultant with [Boston University Research Computing Services]({{ page.url-bu-rcs }}).
 
-I am always happy to talk - so please feel free to reach out.
+I am always happy to talk - so please feel free to reach out!
 
 # About this blog
 
