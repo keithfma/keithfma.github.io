@@ -5,6 +5,7 @@ date:   2018-04-04 10:20:24 -0400
 categories: jekyll update
 published: true
 
+assets: /assets/2018-04-04-beautiful-streamlines
 url-ess-docs: https://keithfma.github.io/evenly_spaced_streamlines/even_stream_demo.html
 url-ess-github: https://github.com/keithfma/evenly_spaced_streamlines
 url-ess-fex: https://www.mathworks.com/matlabcentral/fileexchange/59476-evenly-spaced-streamlines
@@ -30,7 +31,7 @@ figure below.
 + [Mathworks FileExchange]({{ page.url-ess-fex }})
 + [Documentation]({{ page.url-ess-docs }})
 
-![Examples plots from evenly_spaced_streamlines](/assets/even_stream_combined.png)
+![Examples plots from evenly_spaced_streamlines]({{page.assets}}/even_stream_combined.png)
 
 Incidently, a few months after I wrote this package, I learned that my good
 friend [Chris Thissen]({{ page.url-chris }}) had been doing the same thing at
@@ -81,12 +82,12 @@ discuss the various plots it can make, and how it makes them.
 
 First the result. Using the velocity field below as an example:
 
-![Example velocity field](/assets/even_stream_example_field.png)
+![Example velocity field]({{page.assets}}/even_stream_example_field.png)
 
 Plotting streamlines using Jobard and Lefer's algorithms to select start and
 end points for each line, we get the following plot:
 
-![Basic plot using Jobar & Lefer algorithm](/assets/even_stream_line.png)
+![Basic plot using Jobar & Lefer algorithm]({{page.assets}}/even_stream_line.png)
 
 One particularly nice feature of the algorithm is that we can explicitly (and
 independently) set the maximum and minimum streamline spacing. This provides a
@@ -125,7 +126,7 @@ Since simple streamlines do not indicate direction, it is useful to add arrows
 along their length. This can be done easily by placing glyphs at some specified
 distance interval along each line.
 
-![Arrow plot using Jobar & Lefer algorithm](/assets/even_stream_arrow.png)
+![Arrow plot using Jobar & Lefer algorithm]({{page.assets}}/even_stream_arrow.png)
 
 # Tapered streamline plot
 
@@ -133,7 +134,7 @@ We can use the distance between lines to generate tapered lines, what Jobard &
 Lefer refer to as a "hand-drawn" style. To do this, we scale the width of the
 line based on distance to the nearest neighbor, up to some maximum width.
 
-![Tapered-line plot using Jobar & Lefer algorithm](/assets/even_stream_taper.png)
+![Tapered-line plot using Jobar & Lefer algorithm]({{page.assets}}/even_stream_taper.png)
 
 # Textured streamline plot
 
@@ -143,7 +144,7 @@ a quite detailed view of the vector field while still indicating flow
 direction. The effect is similar to the line-integral-convolution (LIC) method,
 but (I think) simpler to understand and implement.
 
-![Textured line plot using Jobar & Lefer algorithm](/assets/even_stream_texture.png)
+![Textured line plot using Jobar & Lefer algorithm]({{page.assets}}/even_stream_texture.png)
 
 
 # References

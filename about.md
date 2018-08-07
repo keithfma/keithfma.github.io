@@ -2,6 +2,8 @@
 layout: page
 title: About
 permalink: /about/
+
+assets: /assets/about
 url-bfc: http://bostonfusion.com/
 url-yale-geo: https://earth.yale.edu/
 url-bu-rcs: http://www.bu.edu/tech/support/research/rcs/
@@ -9,7 +11,7 @@ url-bu-rcs: http://www.bu.edu/tech/support/research/rcs/
 
 # About me
 
-<img align="right" width="160" height="160" src="/assets/me.png" />
+<img align="right" width="160" height="160" src="{{page.assets}}/me.png" />
 
 I am Keith Ma, your friendly neighborhood research scientist and software
 developer. I am currently a Data Science Fellow with [Insight Data Science](https://www.insightdatascience.com/).
@@ -40,7 +42,7 @@ somewhere, sometime do more science and get less NaNs.
 
 In meme form:
 <figure>
-<img src="/assets/meme.jpg" alt="'Scroll of Truth' meme" />
+<img src="{{page.assets}}/meme.jpg" alt="'Scroll of Truth' meme" />
 <figcaption>
 <a href="https://robotatertot.tumblr.com/post/156736308530/truth">Original comic by Tate Parker</a>, not sure who made this wonderful variant.
 </figcaption>
