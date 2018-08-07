@@ -14,8 +14,7 @@ the dataset and an attempt to build a predicitive model to forecast the
 expected number of attendees. My big takeaways were:
 
 1. The MV Polar Bears are reaching an amazing number of people - wow!
-1. The bears are *very* unpredictable, and don't seem much to care about the
-  weather.
+1. The bears are *very* unpredictable.
 
 ## Attendence Over Time
 
