@@ -1,11 +1,11 @@
 ---
 layout: post
 title:  "Parasol Navigation: Optimizing Walking Routes to Keep You in the Sun or Shade"
-date:   2018-08-02 10:20:24 -0400
+date:   2018-08-07 10:20:24 -0400
 categories: jekyll update
 published: true
 
-assets: /assets/2018-08-02-introducing-parasol
+assets: /assets/2018-08-07-introducing-parasol
 ---
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS-MML_HTMLorMML" type="text/javascript"></script>
