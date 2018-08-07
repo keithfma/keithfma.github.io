@@ -190,7 +190,7 @@ cost function.
 Letting $$I$$ be the normalized insolation, the sun cost is:
 
 $$
-\text{sun_cost} = \int_s I ds 
+\text{sun_cost} = \int_s I \,ds 
 $$
 
 Moving on, the "shade cost" term is a bit weirder than the "sun cost", it is
@@ -201,7 +201,7 @@ difference between the maximum insolation and the observed insolation. Since
 the insolation is normalized (has a maximum value of 1), this amounts to:
 
 $$
-\text{shade_cost} = \int_s 1 - I ds
+\text{shade_cost} = \int_s 1 - I \,ds
 $$
 
 <figure>
@@ -212,13 +212,13 @@ video above (i.e., from the Boston Esplanade to South Station).
 </figcaption>
 </figure>
 
-Here is the fun part: if the user sets $$\beta = 1$$, then we recover the
+Here is the fun part: if the user sets $$\beta = 0.5$$, then we recover the
 shortest-length path! Working this through shows that the cost in this case is
 just the path integral of a constant, which is proportional to the length.
 
 $$
 \begin{align}
-\text{cost} &= 0.5 \cdot \int_s I \,ds + 0.5 \int_s 1 - I \,ds \\
+\text{cost} &= 0.5 \int_s I \,ds + 0.5 \int_s 1 - I \,ds \\
 \text{cost} &= 0.5 \int_s I + (1 - I) \,ds \\
 \text{cost} &= 0.5 \int_s 1 \,ds
 \end{align}
@@ -231,7 +231,7 @@ shady routes and still cares about distance.
 
 The heavy lifting for computing the route is handled by the wonderful
 PostgreSQL extension, pgRouting. This extension computes least-cost routes
-using a variety of algorithms (I used Djiksta) and allows the user to specify
+using a variety of algorithms (I used Dijkstra) and allows the user to specify
 the cost as a function of the columns in an OpenStreetMap database. All I had
 to do was to write the computed sun and shade cost for each segment of the
 transport network to my database, and choose the right ones to use based on the
