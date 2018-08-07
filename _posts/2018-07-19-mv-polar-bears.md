@@ -1,6 +1,6 @@
 ---
 layout: post
-title:  "MV Polar Bears!"
+title:  "MV Polar Bears Attendence Data Exploration and Forecasting!"
 date:   2018-07-19 10:20:24 -0400
 categories: jekyll update
 published: true 
