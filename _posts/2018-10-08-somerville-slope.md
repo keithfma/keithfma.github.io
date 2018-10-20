@@ -120,8 +120,9 @@ To dig in just a little, each planar fit finds a plane defined as $$z = ax + by
 +c$$, with the free parameters $$a, b, c$$ determined by a standard least
 squares minimization. Given this equation, the estimate for elevation at a
 point $$(x^\prime, y^\prime)$$ is simply $$z^\prime = a x^\prime + b y^\prime +c$$.
-The local gradient is the vector $$\nabla z = [a, b]$$, with magnitude
-$$\sqrt{a^2 + b^2}$$ and direction $$\arctan \left( \frac{b}{a} \right)$$.
+The local slope has components $$\frac{\partial z}{\partial x} = a$$ and
+$$\frac{\partial z}{\partial y} = b$$, with magnitude $$\sqrt{a^2 + b^2}$$ and
+direction $$\arctan \left( \frac{b}{a} \right)$$.
 
 The calculation is fairly laborious. I created a regular grid with 1 meter
 spacing over the whole city and a binary mask indicating which points are
@@ -132,7 +133,14 @@ to speed up the spatial lookup ([cKDTree](https://docs.scipy.org/doc/scipy/refer
 using [numpy.linalg.lstsq](https://docs.scipy.org/doc/numpy-1.13.0/reference/generated/numpy.linalg.lstsq.html)
 to handle all the possible numerical pitfalls for me.
 
-<!-- TODO: add a figure showing one planar fit with the estimated point elevation and gradient direction -->
+<figure>
+<img src="{{page.assets}}/example_fit.png">
+<figcaption>
+LiDAR observations and best-fit plane for points within 15-foot neighborhood.
+One of the many, many least squares fits that I used to estimate gridded
+elevation and slope.
+</figcaption>
+</figure>
 
 One thing I was worried about in this analysis was the possibility of errors in
 the original data classification. If there were any points labeled as "ground"
@@ -145,8 +153,6 @@ number of observations expected for an area with no data gaps. This decision
 eroded slightly the area where I could compute slopes, but in return increased
 my confidence in the results. This potential issue is not readily apparent in
 the results, which suggests the procedure worked as expected.
-
-<!-- TODO: add a figure showing the covered area vs. the original input points -->
 
 ## From Slope to Impacted Parcels
 
