@@ -92,44 +92,68 @@ In total, this ground-only dataset contains ~36 million elevation observations.
 There are "holes" wherever buildings were removed from the dataset, but we do
 have observations from the ground below the tree canopy.
 
-<!--- TODO: add a figure ploting decimated points -->
+<figure>
+<img src="{{page.assets}}/subset_elevation_points.png">
+<figcaption>
+Example of the ground-only lidar observations used for the slope calculation.
+This figure shows just a small (200 x 100 meter) region along the edge of a
+hill. Gaps in the data are a good thing here - observations of the built
+environment have been filtered out convincingly by the data providers.
+</figcaption>
+</figure>
 
 ## Analysis: 25,781,323 Least Squares Fits
 
+With the elevation data in hand, the next step is to compute local slopes
+throughout the city. The trick here is that the zoning regulation applies to
+slopes over a 30-foot length scale. This means that the usual approach of
+gridding the elevations and using finite differences to approximate the local
+gradient is a no-go -- this would not give the correct lengthscale.
+
+Instead, I decided to estimate the "30-foot slopes" for each point using the
+best-fit plane to the points within a 15-foot radius. This approach has the
+advantage that it includes all of the elevation information in the specified
+area around a point, and also provides an estimate of elevation as well as
+gradient magnitude and direction.
+
+To dig in just a little, each planar fit finds a plane defined as $$z = ax + by
++c$$, with the free parameters $$a, b, c$$ determined by a standard least
+squares minimization. Given this equation, the estimate for elevation at a
+point $$(x^\prime, y^\prime)$$ is simply $$z^\prime = a x^\prime + b y^\prime +c$$.
+The local gradient is the vector $$\nabla z = [a, b]$$, with magnitude
+$$\sqrt{a^2 + b^2}$$ and direction $$\arctan \left( \frac{b}{a} \right)$$.
+
+The calculation is fairly laborious. I created a regular grid with 1 meter
+spacing over the whole city and a binary mask indicating which points are
+inside the city limits. Then for each point in this grid, I extracted the LiDAR
+observations within 15 feet. To make this extraction feasible, I used a KDTree
+to speed up the spatial lookup ([cKDTree](https://docs.scipy.org/doc/scipy/reference/generated/scipy.spatial.cKDTree.html)
+ is your friend!). Then I solved for the best-fit plane using least squares
+using [numpy.linalg.lstsq](https://docs.scipy.org/doc/numpy-1.13.0/reference/generated/numpy.linalg.lstsq.html)
+to handle all the possible numerical pitfalls for me.
+
 <!-- TODO: add a figure showing one planar fit with the estimated point elevation and gradient direction -->
 
-## Scratch
+One thing I was worried about in this analysis was the possibility of errors in
+the original data classification. If there were any points labeled as "ground"
+that were in fact the edge of some tall building, then I might end up computing
+erroneously high slopes at the edge of buildings. This would be a serious flaw,
+given that this is an urban environment and high slopes are the key result I
+was looking for. To mitigate this risk, I only computed slopes around points
+whose local 30-foot neighborhood was well populated -- with at least 75% of the
+number of observations expected for an area with no data gaps. This decision
+eroded slightly the area where I could compute slopes, but in return increased
+my confidence in the results. This potential issue is not readily apparent in
+the results, which suggests the procedure worked as expected.
 
-In this analysis, I used recent (2014) lidar elevation data to compute surface slopes over a 30-ft length scale for Somerville, MA. The lidar dataset provides point observations of elevation with roughly 1 meter horizontal spacing and 20 cm vertical accuracy, and includes classification information that separates point representing the elevation of the ground for those representing natural and man-made objects above the ground (e.g., trees and buildings). The key steps in the analysis are:
+<!-- TODO: add a figure showing the covered area vs. the original input points -->
 
-1) Gather all bare-ground lidar observations within the city limits.
-2) Generate a regular grid with 1 meter horizontal spacing, used to compute gridded elevation and surface slope.
-3) For each point in the output grid, fit a 2D plane to all observations within a 15-ft radius using a standard least-squares fit. The gradient of this plane is an estimate of the local surface slope over a 30-ft length scale. Note that grid points with few observations (less than 75% the expected number) are ignored to reduce the impact of any misclassified observations. For example, observations of building edges might be misclassified as ground and lead to erroneously steep slopes. This potential issue is not readily apparent in the results, which suggests the procedure worked as expected.
-4) Sum the area with greater than 25% grade in each parcel.
-5) Label parcels containing significant are at >25% grade. I set this threshold at 5 m^2, which means a parcel with a few incorrect slope estimates would not be labeled.
+## From Slope to Impacted Parcels
 
-The results show 2,370 of 13,354 parcels in Somerville (~18%) contain areas at > 25% grade. This result was initially surprising, but it is reasonable given that a 25% grade is in fact a fairly modest slope: a rise of only 7.5 ft over a distance of 30 ft.
+The last step was to count the parcels in the city that would be impacted by
+the zoning regulation. Using a shapefile of the Somerville tax parcels provided
+by MassGIS, I summed the area with above-threshold (>25%) slope in each parcel.
+To be conservative in my count, I set an (arbitrary) cutoff of 5 m<sup>2</sup>
+above-threshold slope. Parcels with more than 5 m<sup>2</sup> of above-threshold slope
+were labeled as "impacted", and all others were labeled as "not impacted".  
 
-You can find the software I wrote for this analysis at: https://github.com/keithfma/somerville-slope.
-
-## Template
-
-You’ll find this post in your `_posts` directory. Go ahead and edit it and re-build the site to see your changes. You can rebuild the site in many different ways, but the most common way is to run `jekyll serve`, which launches a web server and auto-regenerates your site when a file is updated.
-
-To add new posts, simply add a file in the `_posts` directory that follows the convention `YYYY-MM-DD-name-of-post.ext` and includes the necessary front matter. Take a look at the source for this post to get an idea about how it works.
-
-Jekyll also offers powerful support for code snippets:
-
-{% highlight ruby %}
-def print_hi(name)
-  puts "Hi, #{name}"
-end
-print_hi('Tom')
-#=> prints 'Hi, Tom' to STDOUT.
-{% endhighlight %}
-
-Check out the [Jekyll docs][jekyll-docs] for more info on how to get the most out of Jekyll. File all bugs/feature requests at [Jekyll’s GitHub repo][jekyll-gh]. If you have questions, you can ask them on [Jekyll Talk][jekyll-talk].
-
-[jekyll-docs]: https://jekyllrb.com/docs/home
-[jekyll-gh]:   https://github.com/jekyll/jekyll
-[jekyll-talk]: https://talk.jekyllrb.com/
