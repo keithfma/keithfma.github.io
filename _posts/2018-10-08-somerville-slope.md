@@ -29,16 +29,16 @@ As always, feel free to contact me if you would like to discuss further.
 ## Results: Lots of Steep Lots
 
 The zoning rule of interest applies to "all natural slopes exceeding 25% over a
-horizontal distance of 30 feet". This sounds like a lot, but percent grade has
+horizontal distance of 30 feet". This sounds like pretty steep, but percent grade has
 a weird definition:  $$\frac{\Delta y}{\Delta x} * 100$$. This means that a
 100% grade is a slope of 1, or equivalently of 45 degrees, and that grade can
 be more than 100%. The threshold slope for this rule is actually pretty modest:
 7.5 feet of elevation change over a horizontal distance of 30 feet.
 
-Not surprising then that in hilly Somerville MA there are a lot of impacted
-lots. I find that **2,370 of 13,354 tax parcels (~18%) contain areas at > 25%
-grade**. The impacted lots are found in clusters around all of the hilly areas in
-the city.
+Given this definition, it is not surprising that there are many impacted lots
+in hilly Somerville MA . I find that **2,370 of 13,354 tax parcels (~18%)
+contain areas at > 25% grade**. The impacted lots are found in clusters around
+all of the hilly areas in the city.
 
 This result should be of interest to the zoning board, as it was initially
 assumed that the rule would impact only a few parcels. This is clearly not the
@@ -57,7 +57,7 @@ Map of Somerville MA tax parcels with those impacted by the zoning rule highligh
 Surface slopes in Somerville MA as percent grade over a 30 foot length scale,
 computed on a 1-meter grid from high-resolution lidar survey data. A few
 notable features are 1) high slopes along major roadway and rail lines caused
-by retaining walls at thier margins, and 2) high slopes at the edges of parcels
+by retaining walls at their margins, and 2) high slopes at the edges of parcels
 on hilly terrain which are also caused by retaining walls at the edge of the
 level lots buildings rest upon. Spot checking in Google Maps Street View show
 that the high slopes at parcel edges are not due to buildings mislabeled as
@@ -83,10 +83,11 @@ square meter. Nice!
 
 One critical prerequisite for the ground slope analysis to work is that
 estimated slopes must exclude buildings and trees. Happily, LiDAR contains some
-extra information that helps in labeling and removing these above ground
+extra information that helps in labeling and removing these above-ground
 features (e.g. multiple returns from tree canopy and ground). Even more
-happily, this lidar dataset has classifications for all points meaning that I
-can simply filter by the label to get the ground-return-only dataset I need.
+happily, this LiDAR dataset classifies for all points as "default", "ground",
+"water", etc,, meaning that I can simply filter by the label to get the
+ground-return-only dataset I need.
 
 In total, this ground-only dataset contains ~36 million elevation observations.
 There are "holes" wherever buildings were removed from the dataset, but we do
@@ -113,8 +114,8 @@ gradient is a no-go -- this would not give the correct lengthscale.
 Instead, I decided to estimate the "30-foot slopes" for each point using the
 best-fit plane to the points within a 15-foot radius. This approach has the
 advantage that it includes all of the elevation information in the specified
-area around a point, and also provides an estimate of elevation as well as
-gradient magnitude and direction.
+area around a point, and simultaneously estimates elevation and slope
+magnitude and direction.
 
 To dig in just a little, each planar fit finds a plane defined as $$z = ax + by
 +c$$, with the free parameters $$a, b, c$$ determined by a standard least
