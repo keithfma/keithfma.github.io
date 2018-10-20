@@ -1,10 +1,10 @@
 ---
 layout: post
 title:  "Surface Slopes from LiDAR Data (or Fun With Zoning Regulations)"
-date:   2018-10-08 10:20:24 -0400
+date:   2018-10-20 01:00:00 -0400
 categories: jekyll update
 published: true
-assets: /assets/2018-10-08-somerville-slope
+assets: /assets/2018-10-20-somerville-slope
 ---
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS-MML_HTMLorMML" type="text/javascript"></script>
