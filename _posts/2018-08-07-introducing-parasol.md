@@ -13,13 +13,12 @@ assets: /assets/2018-08-07-introducing-parasol
 
 Sun and shade have a strong impact on how many of us pick a route to the places
 we want to go. For me personally, direct sun is the devil himself. The point of
-[Parasol](http://parasol.allnans.com) is to leverage knowledge of the
-enviroment to help people make these decisions. This is analogous to how we use
-popular navigation apps like Google Maps or Waze to navigate around traffic: we
-want to avoid congested routes and the apps use extra information about current
-conditions to help us do so. The *Parasol* navigation app knows more about
-where it is sunny and shady than you do, and can help you stick to whichever is
-your favorite.
+*Parasol* is to leverage knowledge of the environment to help people make these
+decisions. This is analogous to how we use popular navigation apps like Google
+Maps or Waze to navigate around traffic: we want to avoid congested routes and
+the apps use extra information about current conditions to help us do so. The
+*Parasol* navigation app knows more about where it is sunny and shady than you
+do, and can help you stick to whichever is your favorite.
 
 I built *Parasol* over 4 weeks as an independent project with [Insight Data Science](https://www.insightdatascience.com).
 I cannot recommend this fellowship highly enough. If you are a PhD considering
@@ -57,7 +56,7 @@ The approach behind *Parasol* is surprisingly straightforward. First, I build a
 high-resolution elevation model. Next, I simulate sun/shade using the position
 of the sun for a given date and time to illuminate the elevation grid. Then, I
 compute a cost function that incorporates sun/shade as well as distance
-for each segment of the transportatation network. Finally, I apply Dijkstra's
+for each segment of the transportation network. Finally, I apply Dijkstra's
 algorithm to compute the shortest path given this custom cost. All of this is
 wrapped up into a friendly web application.
 
@@ -78,7 +77,7 @@ The input data I used are:
 + User supplied route endpoints and sun/shade preference
 
 The tools I used are (faaar from exhaustive):
-+ Python
++ Python with all the usual data science packages
 + [Point Data Abstraction Library (PDAL)](https://pdal.io/)
 + [PostgreSQL](https://www.postgresql.org/) with [PostGIS](https://postgis.net/), [pgpointcloud](https://github.com/pgpointcloud/pointcloud), and [pgRouting](https://pgrouting.org/) extentions
 + [GRASS GIS](https://grass.osgeo.org/) ([r.sun](https://grass.osgeo.org/grass75/manuals/r.sun.html) for solar simulation) 
@@ -108,12 +107,12 @@ Now I had *two* point clouds, but still no grids. LiDAR data are not on a
 nice regular grid, but rather scattered about with irregular spacing. Because
 there is some noise in the measured elevation, I needed to smooth (not
 interpolate) the raw data and then resample on a regular grid. This
-is tricker than one might expect, especially because features with sharp edges
+is trickier than one might expect, especially because features with sharp edges
 (e.g.  buildings) are important to the sun/shade simulation. I used a
 nearest-neighbor median filter, which returns the median value of the
 *k*-nearest neighbors for each point on the output grid. This has the nice
 effect of both smoothing the noise in the data and preserving sharp edges.
-Median filters are common for image denoising, but I had to implement my own to
+Median filters are common for image de-noising, but I had to implement my own to
 work with scattered input data. For the interested, you can 
 [find the code for my nearest-neighbor median filter here](https://github.com/keithfma/parasol/blob/master/pkg/parasol/surface.py)
 --- it is quite simple!
@@ -134,7 +133,7 @@ scattered light. It is not fast, nor is it easy to use, but it gets the job
 done.
 
 <figure>
-<img src="{{page.assets}}/prudential.gif">
+<img src="{{page.assets}}/prudential-small.gif">
 <figcaption>
 Simulated insolation near the Prudential Center, Boston for each hour from 5 AM
 - 7 PM on July 20th, 2018. Light colors indicate higher insolation. Pretty, no?
@@ -146,7 +145,7 @@ to the observed shadows in high-resolution aerial photography (from the [NAIP](h
 program). 
 
 <figure>
-<img src="{{page.assets}}/naip-prudential.gif">
+<img src="{{page.assets}}/naip-prudential-small.gif">
 <figcaption>
 Comparison of observed shadows in NAIP aerial imagery and simulated shadows
 created by Parasol. Comparisons like this served as a qualitative "smell test"
@@ -156,7 +155,7 @@ to make sure the solar simulation worked acceptably well.
 
 To account for shade cast by trees, I set the insolation at all pixels where
 the upper surface is higher than the lower surface (i.e., where the user will
-be walking below some object) and set it to the minumum observed insolation in
+be walking below some object) and set it to the minimum observed insolation in
 the scene. A more sophisticated approach might account for sunlight angling in
 under the trees, or for the changing leaf cover in each season, but these
 features were sadly out of scope for this quick project. 
@@ -173,7 +172,7 @@ for the cost function were:
 1. Incorporate both insolation and distance
 1. Allow for routes that prefer sun and well as routes that prefer shade
 1. Have a minimal number of free parameters (ideally one) so that it is easy
-  for users to indicate thier preference
+  for users to indicate their preference
 1. Be non-negative 
 
 It turns out I was able to write the cost as a simple weighted average of a
@@ -267,8 +266,8 @@ picked up and integrated into one (or more!) of the many wonderful navigation
 apps out there in the wild**. A few things I had hoped to tackle but ran out of
 time for are: 
 
-1. Use sidewalks rather than roads for routing. While OpenStreetMaps allows for
-  sidewalks to be included, many are missing from the database. This is
+1. Use sidewalks rather than roads for routing. While OpenStreetMaps includes special tags for
+  sidewalks, coverage is woefully incomplete. This is
   problematic because *Parasol* is not able to advise user's to take advantage of
   streets where one sidewalk is shady. A few ways to go about this might be (1)
   trying to synthesize a sidewalk graph, or (2) adjust the sun and shade costs to
