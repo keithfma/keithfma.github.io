@@ -6,10 +6,10 @@ categories: jekyll update
 published: true 
 ---
 
-I like to leave myself easter eggs when I write code, most often by printing
-insults when something goes wrong in the code. Childish? Yes, it but helps
-brighten things up when my code is inexplicably broken. This is all well and
-good, but I thought I could do a bit better. What if:
+One way I make myself laugh is by making my code print silly or insulting
+messages when something goes wrong. Childish? Yes, but it helps brighten things
+up when my code is inexplicably broken. This is all well and good, but I
+thought I could do a bit better. What if:
 
 + The insulting messages were real Python `Exception`s rather than lame print
   statements, so that the program fails in a neat and tidy way.
