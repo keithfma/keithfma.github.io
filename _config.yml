@@ -13,6 +13,9 @@ theme: minima
 plugins_dir:
   - jekyll-feed
 
+# Enable Google Analytics tracking
+google-analytics: UA-128279945-1
+
 # Exclude from processing.
 # The following items will not be processed, by default. Create a custom list
 # to override the default setting.
