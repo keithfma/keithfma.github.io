@@ -14,7 +14,7 @@ url-bu-rcs: http://www.bu.edu/tech/support/research/rcs/
 <img align="right" width="160" height="160" src="{{page.assets}}/me.jpg" />
 
 I am Keith Ma, your friendly neighborhood research scientist and software
-developer. I am currently a Data Engineer at [TellusLabs](https://telluslabs.com/),
+developer. I am currently a Data Engineer at [Indigo Ag](https://www.indigoag.com/),
 where I build large-scale data analytics tools for agricultural monitoring and
 prediction. I am also working towards completing my PhD at in [Geology & Geophysics at Yale University]({{page.url-yale-geo }}).
 
