@@ -1,4 +1,4 @@
-# allnans.com(https://allnans.com)
+# http://allnans.com
 
 This repo contains my personal blog, which you can find at the link above.
 
