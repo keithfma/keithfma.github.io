@@ -46,7 +46,7 @@ raise ValueError('a normal message')
 # FuckYouBuddy: a normal message
 {% endhighlight %}
 
-Credit to Jacob MacDonald (my colleague at Indigo Ag) for the idea and initial implementation. This feature
+Credit to Jacob McDonald (my colleague at Indigo Ag) for the idea and initial implementation. This feature
 works by modifying the `sys.excepthook` callable, which is executed just before Python fails due to an 
 uncaught exception. Happily, the original value of this callable is preserved as `sys.__excepthook__`, so
 we can easily undo the change.We simply wrap the original hook such that the exception type becomes an `InsultError`, 
