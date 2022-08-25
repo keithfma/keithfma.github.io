@@ -2,8 +2,20 @@
 layout: post
 title:  "Uncertaintext: an experiment in representing uncertainty with text"
 date:   2022-08-24 00:00:00 -0400
+assets: /assets/2022-08-24-uncertaintext
 published: true 
 ---
+
+<script type=module>
+  import uncertaintext from "{{page.assets}}/uncertaintext.js";
+  uncertaintext();
+</script>
+
+<style>
+  .uncertaintext {
+    font-family: monospace;
+  }
+</style>
 
 In scientific writing, the typical ways to report uncertainty are with the
 friendly plus-or-minus sign, e.g., 1.5 ± 0.05, or the more concise but more
@@ -44,16 +56,28 @@ updated (replaced) several times a second. We insert the HTML element
 `<div class=uncertaintext data-uct-distrib=normal data-uct-mu=101 data-uct-sigma=2>`
 and observe the fun. 
 
-> Satellite sea level observations show 101 ± 4.0 mm rise in global sea level since 1993.
+<blockquote>
+  Satellite sea level observations show 
+  <span class=uncertaintext data-uct-distrib=normal data-uct-mu=101 data-uct-sigma=2 data-uct-format="&nbsp;>6.2f"></span> mm 
+  rise in global sea level since 1993.
+</blockquote>
 
 Maybe that update is too fast and giving you a headache, we can specify the update interval in
 "frames-per-second" to slow things down.
 
-> Satellite sea level observations show 101 ± 4.0 mm rise in global sea level since 1993.
+<blockquote>
+  Satellite sea level observations show 
+  <span class=uncertaintext data-uct-distrib=normal data-uct-mu=101 data-uct-sigma=2 data-uct-format="&nbsp;>6.2f" data-uct-fps=1></span> mm 
+  rise in global sea level since 1993.
+</blockquote>
 
 Maybe you want a little more precision, we can specify the format to give more digits.
 
-> Satellite sea level observations show 101 ± 4.0 mm rise in global sea level since 1993.
+<blockquote>
+  Satellite sea level observations show 
+  <span class=uncertaintext data-uct-distrib=normal data-uct-mu=101 data-uct-sigma=2 data-uct-format="&nbsp;>8.4f" data-uct-fps=1></span> mm 
+  rise in global sea level since 1993.
+</blockquote>
 
 
 TODO: a little about how it is done, a little about how to use it in your own pages.
