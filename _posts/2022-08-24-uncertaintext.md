@@ -36,11 +36,14 @@ more informal target audience.
 
 Where I think both approaches come up short is in conveying an _intuition_ of
 what values are likely. Sure, the information is there, but we know that
-probability is hard and uncertainty often misunderstood. My [uncertaintext
-project][uncertaintext-repo] is a little experiment aimed at delivering this
+probability is hard and uncertainty often misunderstood.
+
+My [uncertaintext project][uncertaintext-repo] is a little experiment aimed at delivering this
 intuition. Let's take advantage of the fact the webpages need not be static,
 and see what happens if we display uncertain values as samples from some
 underlying distribution. 
+
+## Uncertaintext in action
 
 Take this example sentence about the current estimate of sea level rise provided by [NASA][nasa-sea-level]:
 
@@ -79,8 +82,13 @@ Maybe you want a little more precision, we can specify the format to give more d
   rise in global sea level since 1993.
 </blockquote>
 
+Personally, I find this dynamic representation both informative (but __quite__ distracting).
 
-TODO: a little about how it is done, a little about how to use it in your own pages.
+TODO: discuss tradeoff between communicating precise info and conveying an intuition for the value and how well we have pinned it down.
+
+## How it works and how to use it
+
+TODO
 
 [uncertaintext-repo]: https://github.com/keithfma/uncertaintext
 [nasa-sea-level]: https://climate.nasa.gov/vital-signs/sea-level/
