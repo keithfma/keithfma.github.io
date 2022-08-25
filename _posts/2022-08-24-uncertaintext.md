@@ -55,9 +55,7 @@ standard deviations, we can use special HTML markup to indicate that we want to
 display a normal distributes with mean 101 and standard deviation 2.
 Uncertaintext will find and parse this information when the page loads, and
 insert a sample from the specified distribution into the text.  This value is
-updated (replaced) several times a second. We insert the HTML element
-`<div class=uncertaintext data-uct-distrib=normal data-uct-mu=101 data-uct-sigma=2>`
-and observe the fun. 
+updated (replaced) several times a second. Observe the fun!
 
 <blockquote>
   Satellite sea level observations show 
@@ -65,26 +63,37 @@ and observe the fun.
   rise in global sea level since 1993.
 </blockquote>
 
-Maybe that update is too fast and giving you a headache, we can specify the update interval in
-"frames-per-second" to slow things down.
+Maybe that's too much precision? We can update the format to give fewer digits.
 
 <blockquote>
   Satellite sea level observations show 
-  <span class=uncertaintext data-uct-distrib=normal data-uct-mu=101 data-uct-sigma=2 data-uct-format="&nbsp;>6.2f" data-uct-fps=1></span> mm 
+  <span class=uncertaintext data-uct-distrib=normal data-uct-mu=101 data-uct-sigma=2 data-uct-format="&nbsp;>3d"></span> mm 
   rise in global sea level since 1993.
 </blockquote>
 
-Maybe you want a little more precision, we can specify the format to give more digits.
+Maybe that update cadence is too fast and giving you a headache? We can specify
+the update in "frames-per-second" to slow things down.
 
 <blockquote>
   Satellite sea level observations show 
-  <span class=uncertaintext data-uct-distrib=normal data-uct-mu=101 data-uct-sigma=2 data-uct-format="&nbsp;>8.4f" data-uct-fps=1></span> mm 
+  <span class=uncertaintext data-uct-distrib=normal data-uct-mu=101 data-uct-sigma=2 data-uct-format="&nbsp;>3d" data-uct-fps=1></span> mm 
   rise in global sea level since 1993.
 </blockquote>
 
-Personally, I find this dynamic representation both informative (but __quite__ distracting).
+Maybe you want a different distribution? We can try a uniform distribution
+instead, here with a minimum of 97 and a maxium of 105.
 
-TODO: discuss tradeoff between communicating precise info and conveying an intuition for the value and how well we have pinned it down.
+<blockquote>
+  Satellite sea level observations show 
+  <span class=uncertaintext data-uct-distrib=uniform data-uct-min=97 data-uct-max=105 data-uct-format="&nbsp;>3d" data-uct-fps=1></span> mm 
+  rise in global sea level since 1993.
+</blockquote>
+
+
+Personally, I find this dynamic representation informative if a bit distracting.
+
+TODO: discuss tradeoff between communicating precise info and conveying an
+intuition for the value and how well we have pinned it down.
 
 ## How it works and how to use it
 
