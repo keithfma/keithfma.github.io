@@ -49,13 +49,10 @@ Take this example sentence about the current estimate of sea level rise provided
 
 > Satellite sea level observations show 101 ± 4.0 mm rise in global sea level since 1993.
 
-Let's jazz it up a bit using the uncertaintext library. Taking a guess that the
+Let's jazz it up a bit using the [uncertaintext][uncertaintext-repo] library. Taking a guess that the
 measurement uncertainty is Gaussian, and that the stated 4.0 range is two
-standard deviations, we can use special HTML markup to indicate that we want to
-display a normal distributes with mean 101 and standard deviation 2.
-Uncertaintext will find and parse this information when the page loads, and
-insert a sample from the specified distribution into the text.  This value is
-updated (replaced) several times a second. Observe the fun!
+standard deviations, we can tell uncertaintext to display samples from a normal
+distributes with mean 101 and standard deviation 2. Observe the fun!
 
 <blockquote>
   Satellite sea level observations show 
@@ -89,15 +86,38 @@ instead, here with a minimum of 97 and a maxium of 105.
   rise in global sea level since 1993.
 </blockquote>
 
+Personally, I find this dynamic representation informative, if a bit silly. I
+think that it _does_ impart a more visceral feel for the certainty of the
+estimated value. 
 
-Personally, I find this dynamic representation informative if a bit distracting.
+As a final example, say we have two estimates with the same expected value but
+different standard deviations. Displaying these with uncertaintext hammers home
+the difference in a quite satisfying way:
 
-TODO: discuss tradeoff between communicating precise info and conveying an
-intuition for the value and how well we have pinned it down.
+<table>
+  <tr>
+    <th> Standard Notation </th>
+    <td> 1 ± 0.01 </td> 
+    <td> 1 ± 0.5 </td> 
+  </tr>
+  <tr>
+    <th> Uncertaintext </th>
+    <td><span class=uncertaintext data-uct-distrib=normal data-uct-mu=1 data-uct-sigma="0.01" data-uct-format="&nbsp;>.2f" data-uct-fps=2></span></td>
+    <td><span class=uncertaintext data-uct-distrib=normal data-uct-mu=1 data-uct-sigma="0.5" data-uct-format="&nbsp;>.2f" data-uct-fps=2></span></td>
+  </tr>
+</table>
 
-## How it works and how to use it
+## How to use it
 
-TODO
+WIP
+
+## How it works
+
+WIP
+
+Uncertaintext will find and parse this information when the page loads, and
+insert a sample from the specified distribution into the text. 
+
 
 [uncertaintext-repo]: https://github.com/keithfma/uncertaintext
 [nasa-sea-level]: https://climate.nasa.gov/vital-signs/sea-level/
