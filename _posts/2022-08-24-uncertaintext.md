@@ -109,15 +109,26 @@ the difference in a quite satisfying way:
 
 ## How to use it
 
-WIP
+Uncertaintext is a javascript module which finds HTML elements with
+`class=uncertaintext`, parses special dataset attributes that define the
+distribution, format, and update interval, and then inserts random samples into
+the element's `innerHTML`.
 
-## How it works
+First, download uncertaintext.js [LINK TO DISTRIBUTION NEEDED] and put it somewhere accessable to your webpage.  in your webpage like so:
 
-WIP
+Then, import the main uncertaintext function into your page and run it, like so:
+```html
+<script type=module>
+  import uncertaintext from "include/uncertaintext.js";
+  uncertaintext();
+</script>
+```
 
-Uncertaintext will find and parse this information when the page loads, and
-insert a sample from the specified distribution into the text. 
+Lastly, add `<span>` elements where you want uncertaintext to display random samples from a given distribution. For example:
+`<span class=uncertaintext data-uct-distrib=normal data-uct-mu=1 data-uct-sigma="0.01"></span>`
 
+This is, in fact, exactly how this blog post uses uncertaintext. For more details on available distributions and other formatting
+options, take a look at the [README for the project][uncertaintext-repo].
 
 [uncertaintext-repo]: https://github.com/keithfma/uncertaintext
 [nasa-sea-level]: https://climate.nasa.gov/vital-signs/sea-level/
