@@ -1,8 +1,8 @@
 ---
 layout: post
-title:  "Uncertaintext: text-only animation of uncertainty"
-date:   2023-06-04 00:00:00 -0400
-assets: /assets/2022-08-24-uncertaintext
+title:  "Uncertaintext for uncertain numbers"
+date:   2023-09-02 00:00:00 -0400
+assets: /assets/2023-09-02-uncertaintext
 published: true 
 ---
 
@@ -18,8 +18,8 @@ published: true
 </style>
 
 In scientific writing, the typical ways to report uncertainty are with the
-friendly plus-or-minus sign, e.g., 1.5 ± 0.05, or the more concise but more
-cryptic parenthesis notation, e.g., 1.5(5).
+friendly plus-or-minus sign, e.g., 1.5 ± 0.05, or the more concise parenthesis
+notation, e.g., 1.5(5).
 
 These representations are understood to give a range within which the true
 value is likely to fall -- the textual equivalent of error bars in a plot.
@@ -54,7 +54,7 @@ Let's jazz it up a bit using the [uncertaintext][uncertaintext-repo] library.
 Taking a guess that the measurement uncertainty is Gaussian, and that the
 stated 4.0 mm range is two standard deviations, we can tell uncertaintext to
 display samples from a normal distributes with mean 101 and standard deviation
-2. Observe the fun!
+2.0 mm. Observe the fun!
 
 <blockquote>
   Satellite sea level observations show 
@@ -71,7 +71,8 @@ Maybe that's too much precision? We can update the format to give fewer digits.
 </blockquote>
 
 Maybe that update cadence is too fast and giving you a headache? We can specify
-the update in "frames-per-second" to slow things down.
+the update in "frames-per-second" to slow things down. The previous example updates
+5 times per second, so let's reduce that to 2.
 
 <blockquote>
   Satellite sea level observations show 
@@ -116,8 +117,8 @@ Uncertaintext is a javascript module which finds HTML elements with
 distribution, format, and update interval, and then inserts random samples into
 the element's `innerHTML`.
 
-First, download uncertaintext.js [LINK TO DISTRIBUTION NEEDED] and put it
-somewhere accessable to your webpage. 
+First, download [uncertaintext.js][uncertaintext-release] and put it somewhere
+accessable to your webpage. 
 
 Then, import the main uncertaintext function into your page and run it, like so:
 ```html
@@ -147,4 +148,5 @@ details on available distributions and other formatting options, take a look at
 the [README for the project][uncertaintext-repo].
 
 [uncertaintext-repo]: https://github.com/keithfma/uncertaintext
+[uncertaintext-release]: https://github.com/keithfma/uncertaintext/releases
 [nasa-sea-level]: https://climate.nasa.gov/vital-signs/sea-level/
