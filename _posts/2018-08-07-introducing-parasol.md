@@ -31,10 +31,10 @@ For the interested, all of the code for this project is posted on Github at:
 ## TL;DR
 
 Parasol uses high-resolution elevation data to simulate sunshine and constructs
-routes that keep users in the sun or shade, whichever they prefer. **You can
-try out the app at [parasol.allnans.com](http://parasol.allnans.com).**
+routes that keep users in the sun or shade, whichever they prefer. ~~You can
+try out the app at parasol.allnans.com.~~
 
-**Easier still, check out the demo video below**:
+The app is no longer live, but you can still **check out the demo video below**:
 
 <figure>
 <video controls src="{{page.assets}}/ParasolDemo.mp4" type="video/mp4" width="700" height="525">Sorry, your browser doesn't support embedded videos</video>
